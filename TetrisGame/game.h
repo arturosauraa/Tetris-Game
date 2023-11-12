@@ -17,6 +17,7 @@ public:
     int score;
     double gameSpeed;
     int scoreSpeed;
+    int level;
 
 private:
     std::vector<Block> blocks;

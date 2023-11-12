@@ -42,19 +42,28 @@ int main()
         BeginDrawing();
         ClearBackground(darkBlue);
         DrawTextEx( font, "Score", {365, 15}, 38, 2, WHITE);
-        DrawTextEx( font, "Next", {370, 175}, 38, 2, WHITE);
+        DrawTextEx( font, "Next", {370, 275}, 38, 2, WHITE);
         if(game.gameOver)
         {
-            DrawTextEx( font, "Game Over", {320, 450}, 34, 2, WHITE);
+            DrawTextEx( font, "Game Over", {320, 550}, 34, 2, WHITE);
         }
-        DrawRectangleRounded({320, 55, 170, 60}, 0.3, 6, lightBlue);
+        DrawRectangleRounded({320, 55, 170, 50}, 0.3, 6, lightBlue);
+
+        DrawTextEx( font, "Level", {365, 130}, 38, 2, WHITE);    
+        DrawRectangleRounded({320, 180, 170, 50}, 0.3, 6, lightBlue);
+        char levelText[10];
+        sprintf(levelText, "%d", game.level);
+        Vector2 textSizeLevel = MeasureTextEx(font, levelText, 38, 2);
+        DrawTextEx( font, levelText, {320 + (175 - textSizeLevel.x)/2, 190}, 38, 2, WHITE);
+
+
 
         char scoreText[10];
         sprintf(scoreText, "%d", game.score);
         Vector2 textSize = MeasureTextEx(font, scoreText, 38, 2);
         DrawTextEx( font, scoreText, {320 + (175 - textSize.x)/2, 65}, 38, 2, WHITE);
 
-        DrawRectangleRounded({320, 215, 170, 180}, 0.3, 6, lightBlue);
+        DrawRectangleRounded({320, 315, 170, 180}, 0.3, 6, lightBlue);
         
         game.Draw();
         EndDrawing();

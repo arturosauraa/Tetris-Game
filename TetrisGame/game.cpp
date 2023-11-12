@@ -11,6 +11,7 @@ Game::Game()
     score = 0;
     gameSpeed = 0.3;
     scoreSpeed = 100;
+    level = 1;
 }
 
 Block Game::GetRandomBlock()
@@ -37,13 +38,13 @@ void Game::Draw()
     switch(nextBlock.id)
     {
         case 3:
-            nextBlock.Draw(255, 290);
+            nextBlock.Draw(255, 390);
             break;
         case 4:
-            nextBlock.Draw(255, 280);
+            nextBlock.Draw(255, 380);
             break;
         default:
-            nextBlock.Draw(270,270);
+            nextBlock.Draw(270,370);
             break;
     }
 }
@@ -207,6 +208,7 @@ void Game::UpdateSpeed()
     {
         scoreSpeed += 1000;
         gameSpeed -= 0.01;
+        level++;
     }
     if(gameSpeed <= 0)
     {
